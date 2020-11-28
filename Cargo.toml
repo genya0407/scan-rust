@@ -9,3 +9,5 @@ edition = "2018"
 [dependencies]
 argopt = "0.1.1"
 structopt = "*"
+regex = "1.4.2"
+anyhow = "1.0"
