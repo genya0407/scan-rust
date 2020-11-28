@@ -38,4 +38,4 @@ yyy
 
 ## setup
 
-Download and extract to `$PATH` dir.
+Download binary from [Release page](https://github.com/genya0407/scan-rust/releases) and extract to `$PATH` dir.
