@@ -23,7 +23,7 @@ fn main(
             delimiter: delimiter,
         })
     } else {
-        let delimiter = Regex::new(r"\s")?;
+        let delimiter = Regex::new(r"\s+")?;
         Box::new(DelimiterScanner {
             delimiter: delimiter,
         })
