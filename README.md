@@ -1,8 +1,32 @@
 # scan
 
-`scan` extracts desired pattern from stdin using pattern or delimiter.
+`scan` extracts substrings and builds output using pattern or delimiter.
 
-## pattern
+
+```shell
+# extract time from access log
+$ cat access.log | scan -p 'time:(.+?)\s+' {1}
+2020-11-29T00:03:10+09:00
+2020-11-29T00:11:01+09:00
+2020-11-29T00:11:02+09:00
+2020-11-29T00:15:55+09:00
+2020-11-29T00:21:03+09:00
+2020-11-29T00:21:19+09:00
+2020-11-29T00:21:58+09:00
+
+# extract 2nd column from csv file
+$ cat hoge.csv | scan -d , {2}
+hogehoge
+fugafuga
+```
+
+## setup
+
+Download binary from [Release page](https://github.com/genya0407/scan-rust/releases) and extract to `$PATH` dir.
+
+## examples
+
+### pattern
 
 You can use regular expressions supported by [Regex](https://docs.rs/regex/1.4.2/regex/#syntax).
 
@@ -22,7 +46,7 @@ hogehoge:nyan
 hohho:nyan
 ```
 
-## delimiter
+### delimiter
 
 Delimiter is also regular expression.
 
@@ -45,6 +69,3 @@ bbb
 yyy
 ```
 
-## setup
-
-Download binary from [Release page](https://github.com/genya0407/scan-rust/releases) and extract to `$PATH` dir.
