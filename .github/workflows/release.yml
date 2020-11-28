@@ -55,11 +55,11 @@ jobs:
           use-cross: true
 
       - run: |
-          zip --junk-paths hist-${{ matrix.target }} target/${{ matrix.target }}/release/hist{,.exe}
+          zip --junk-paths scan-${{ matrix.target }} target/${{ matrix.target }}/release/scan{,.exe}
       - uses: actions/upload-artifact@v1
         with:
           name: build-${{ matrix.target }}
-          path: hist-${{ matrix.target }}.zip
+          path: scan-${{ matrix.target }}.zip
 
   create-release:
     needs: [build]
@@ -105,6 +105,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.upload-url.outputs.url }}
-          asset_path: ./build-${{ matrix.target }}/hist-${{ matrix.target }}.zip
-          asset_name: hist-${{ matrix.target }}.zip
+          asset_path: ./build-${{ matrix.target }}/scan-${{ matrix.target }}.zip
+          asset_name: scan-${{ matrix.target }}.zip
           asset_content_type: application/zip
