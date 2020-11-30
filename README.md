@@ -48,7 +48,7 @@ hohho:nyan
 
 ### delimiter
 
-Delimiter is also regular expression.
+You can split line by delimiter, and get "column".
 
 ```shell
 $ cat hoge.csv
@@ -58,12 +58,20 @@ xxx,yyy,zzz
 $ cat hoge.csv | scan -d , {3}
 ccc
 zzz
+```
 
-# default delimiter is '\s+'
+Delimiter is also regular expression.
+
+```
 $ cat hoge.tsv
 aaa     bbb     ccc
 xxx     yyy     zzz
 
+$ cat hoge.tsv | scan -d '\s+' {3}
+ccc
+zzz
+
+# default delimiter is '\s+'
 $ cat hoge.tsv | scan {2}
 bbb
 yyy
